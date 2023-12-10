@@ -66,7 +66,7 @@ class Model {
         const limitClause = size && page ? `LIMIT ${size} OFFSET ${(page - 1) * size}` : '';
 
         const countQuery = `SELECT COUNT(*) as count FROM (${join ? join : `SELECT * FROM ${this.tableName}`} ${whereClause} ${group ? group : ''}) AS subquery`;
-        const dataQuery = `${join ? join : `SELECT * FROM ${this.tableName}`} ${whereClause} ${group ? group : ''} ${orderClause} ${limitClause}`;
+        const dataQuery = `${join ? join : `SELECT * FROM ${this.tableName}`} ${whereClause} ${group ? group : ''} ${orderClause} ${limitClause}`.replaceAll('  ', ' ');
 
         try {
             const [countResult] = await pool.execute(countQuery, values);

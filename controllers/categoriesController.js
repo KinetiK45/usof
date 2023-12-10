@@ -54,11 +54,11 @@ async function posts_by_category(req, res) {
 
 async function create_category(req, res) {
     try {
+        const {title, description} = req.body;
         if (req.senderData.role !== 'admin')
             return  ERRORS.ACCESS_DENIED(res);
-        const title = req.headers.title;
         let category = new Category();
-        category.setData(title, req.headers.description ? req.headers.description : '...');
+        category.setData(title, description ? description : '...');
         await category.insert();
         res.json(new Response(true, 'Success'));
     } catch (error) {
@@ -69,15 +69,16 @@ async function create_category(req, res) {
 async function edit_category(req, res) {
     try {
         if (req.senderData.role !== 'admin')
-            return  ERRORS.ACCESS_DENIED(res);
+            return ERRORS.ACCESS_DENIED(res);
+        const {title, description} = req.body;
         const category_id = req.params.category_id;
         await checkCategoryValid(category_id, res, async () => {
             let category = new Category();
             let updated_data = {id: category_id};
-            if (req.headers.title)
-                updated_data.title = req.headers.title;
-            if (req.headers.description)
-                updated_data.description = req.headers.description;
+            if (title)
+                updated_data.title = title;
+            if (description)
+                updated_data.description = description;
             await category.updateById(updated_data);
             res.json(new Response(true, 'Success'));
         })

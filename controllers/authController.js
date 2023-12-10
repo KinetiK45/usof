@@ -15,28 +15,33 @@ const transporter = nodemailer.createTransport({
 });
 
 async function register(req, res) {
-    const headers = req.headers;
     let user = new User();
-    user.registration(headers.login, headers.password, headers.email)
+    const { login, password, email } = req.body;
+    user.registration(login, password, email)
         .then((result)=>{
             user.find({id: result})
-                .then((registered_data)=>{
-                    res.json(new Response(true, undefined, registered_data[0]));
+                .then(()=>{
+                    res.json(new Response(true, 'Регистрация успешна'));
                 })
         }).catch((error)=>{
-            res.json(new Response(false, error.toString()))
+            console.log(error);
+            res.json(new Response(false, error.toString()));
     });
 }
 
 async function login(req, res) {
-    const headers = req.headers;
+    const { login, password } = req.body;
     let user = new User();
-    user.find({login: headers.login}).then((usersFound)=>{
+    user.find({login: login}).then((usersFound)=>{
         if (usersFound.length === 0){
             res.json(new Response(false, 'Нет пользователя с такими данными'));
         }
-        else if (usersFound[0].password === headers.password){
-            res.json(new Response(true, 'Успешный вход', {auth_key: token_controller.generateToken(usersFound[0])}));
+        else if (usersFound[0].password === password){
+            res.json(new Response(true, 'Успешный вход', {
+                user_id: usersFound[0].id,
+                auth_key: token_controller.generateToken(usersFound[0]),
+                role: usersFound[0].role
+            }));
         }
         else
             res.json(new Response(false, 'Не правильный пароль!'));
@@ -47,15 +52,14 @@ async function login(req, res) {
 }
 
 async function password_reset(req, res) {
-    const email = req.headers.email;
-
+    const { email } = req.body;
     let user = new User();
     let find_results = await user.find({email: email});
     if (find_results.length === 0)
         return ERRORS.NOT_FOUND_ERROR(res, 'User');
 
     const token = token_controller.generateToken({login: find_results[0].login}, '10m');
-    const link = `http://localhost:3000/api/auth/password-reset/${token}`;
+    const link = `${req.headers.origin}/password-reset/${token}`;
     const mailOptions = {
         to: find_results[0].email,
         subject: 'Password reset',
@@ -69,14 +73,27 @@ async function password_reset(req, res) {
         if (error) {
             res.json(new Response(false, error.toString()));
         } else {
-            res.json(new Response(true, 'Password recovery link was successfully send to your email'));
+            res.json(new Response(true, 'Посилання на відновлення паролю було відправлено на вашу пошту'));
         }
     });
 }
 
 async function password_reset_confirmation(req, res) {
-    const login = req.senderData.login;
-    res.json(new Response(true, `Логин ${login}, тут будет страница с созданием нового пароля`));
+    try {
+        const login = req.senderData.login;
+        let user = new User();
+        const results = await user.find({login: login});
+        if (results.length === 0)
+            return ERRORS.NOT_FOUND_ERROR(res, 'user');
+
+        const change_res = await user.updateById({
+            id: results[0].id,
+            password: req.body.password
+        });
+        res.json(new Response(true, 'Данные оновлены', change_res));
+    } catch (error){
+        res.json(new Response(false, error.toString()));
+    }
 }
 
 module.exports = {

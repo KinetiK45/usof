@@ -58,7 +58,8 @@ CREATE TABLE IF NOT EXISTS post_categories(
     post_id INT NOT NULL,
     category_id INT NOT NULL,
     FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE,
-    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
+    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE,
+    UNIQUE KEY unique_post_category (post_id, category_id)
 );
 
 CREATE TABLE IF NOT EXISTS post_likes(
@@ -114,13 +115,14 @@ BEFORE INSERT ON users
 FOR EACH ROW
 BEGIN
     DECLARE next_number INT;
-    SET next_number = (SELECT IFNULL(MAX(SUBSTRING(nickname, 5) + 1), 1) FROM users);
+    SET next_number = (SELECT IFNULL(MAX(CAST(SUBSTRING(nickname, 5) AS UNSIGNED)) + 1, 1) FROM users WHERE nickname LIKE 'user%');
     SET NEW.nickname = CONCAT('user', next_number);
     WHILE (SELECT COUNT(*) FROM users WHERE nickname = NEW.nickname) > 0 DO
         SET next_number = next_number + 1;
         SET NEW.nickname = CONCAT('user', next_number);
     END WHILE;
 END;
+
 
 //
 
@@ -205,3 +207,11 @@ END;
 
 //
 DELIMITER ;
+
+INSERT INTO categories (title, description) VALUES
+('Інше', 'Якщо ви не можете обрати ні одну із категорій');
+
+INSERT INTO users (login, password, email, role) VALUES
+('admin', 'admin', 'admin@admin.ad', 'admin'),
+('user', 'user', 'user@user.us', 'user');
+
