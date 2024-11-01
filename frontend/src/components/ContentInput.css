@@ -1,0 +1,35 @@
+textarea {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: -webkit-fill-available;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 14px 14px 0 14px;
+    min-height: 1.5em;
+    padding-top: 5px;
+    height: auto;
+    overflow: hidden;
+}
+
+.text-input {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#input-area {
+    min-width: 760px;
+}
+
+#content {
+    min-width: 796px;
+    max-width: 796px;
+}
+
+.create-comment {
+    margin-right: 10px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,29 @@
+.users-center-block {
+    min-width: 800px;
+}
+
+.users-block {
+    background-color: #3b3b3b;
+    border-radius: 10px;
+}
+
+.user-line {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr 0.8fr 0.8fr;
+    gap: 10px;
+    align-items: center;
+}
+
+.user-line:hover {
+    background-color: #444444;
+}
+
+.user-line img {
+    height: 100px;
+    width: 100px;
+}
+
+.main-menu > select {
+    font-size: 18px;
+}
+

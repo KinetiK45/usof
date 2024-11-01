@@ -1,0 +1,55 @@
+select {
+    color: white;
+    background-color: #3b3b3b;
+    appearance: none;
+    padding: 5px;
+    width: max-content;
+    border: none;
+    text-align: center;
+}
+
+.main-menu {
+    width: max-content;
+    padding: 5px;
+}
+
+.main-menu h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.main-menu label {
+    font-size: 18px;
+}
+
+/*.select-box {*/
+/*    display: grid;*/
+/*    grid-template-columns: max-content max-content;*/
+/*}*/
+
+input[type=date]{
+    width: max-content;
+    background-color: transparent;
+    border: none;
+}
+
+.select-box {
+    display: grid;
+    gap: 10px; /* Расстояние между элементами внутри .select-box */
+    grid-template-columns: 120px 1fr; /* Задает ширину первого столбца в 150px, остальное занимает второй столбец */
+    align-items: center; /* Выравнивание элементов по вертикали */
+}
+
+/* Стили для label внутри .select-box */
+.select-box label {
+    display: inline-block;
+    margin-bottom: 5px; /* Расстояние между label и соседними элементами */
+}
+
+/* Стили для input и select внутри .select-box */
+.select-box input,
+.select-box select {
+    font-size: 15px;
+    width: 100%; /* Занимает всю доступную ширину второго столбца */
+    padding: 8px; /* Поля вокруг текста внутри элемента */
+    box-sizing: border-box; /* Учитывает padding в расчетах размеров элемента */
+}

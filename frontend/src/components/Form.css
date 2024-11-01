@@ -1,0 +1,58 @@
+form {
+    border: 1px solid white;
+    padding: 10px;
+    text-align: center;
+    height: auto;
+    width: 300px;
+    border-radius: 30px;
+}
+
+form h2 {
+    margin-top: 0;
+}
+
+form > button {
+    width: 100%;
+    color: white;
+    background-color: black;
+}
+
+form > button {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.01);
+    transition: background-color 0.3s ease;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+form > button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+form > button:active {
+    background-color: #21618c;
+    border-color: #21618c;
+}
+
+.input-text-block {
+    margin-bottom: 10px;
+    /*background: #3d4452;*/
+}
+
+form input {
+    width: 95%;
+    height: 2em;
+    border: none;
+    background-color: rgba(1, 1, 1, 0);
+    /*border-left: 5px solid white;*/
+    border-bottom: 1px solid white; /* Вы можете изменить толщину, цвет и стиль линии по своему усмотрению */
+}
+
+#Error {
+    color: red;
+}

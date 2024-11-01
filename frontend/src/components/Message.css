@@ -1,0 +1,56 @@
+.avatar {
+    width: 100px;
+    height: 100px;
+}
+
+.post-category {
+    margin-right: 5px;
+    margin-top: 5px;
+    background-color: purple;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 3px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.creator-data-line div {
+    display: inline-flex;
+    margin-right: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.creator-data-line {
+    display: flex;
+    margin-left: 5px;
+}
+
+.status, .registration-date {
+    color: darkgrey;
+    font-size: 16px;
+    font-family: "Inter-LightItalic", Helvetica;
+}
+
+.right-side-block {
+    width: 100%;
+}
+
+.right-side-block button {
+    width: 605px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.message-actions {
+    margin-left: auto;
+}
+.message-actions > * {
+    margin-left: 3px;
+}
+
+a.nickname {
+    color: white;
+    margin-right: 5px;
+}

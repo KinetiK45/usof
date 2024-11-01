@@ -1,0 +1,42 @@
+#Navigation {
+    width: 100vw;
+    height: 50px;
+    background-color: #343434;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+}
+
+#profile-block {
+    margin-left: auto;
+    display: flex;
+    padding-right: 10px;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+#Navigation > div {
+    margin-right: 10px;
+    text-align: center;
+}
+.nav-menu-item {
+    text-align: center;
+    cursor: pointer;
+}
+
+#Navigation img {
+    height: 40px;
+    width: 40px;
+}
+
+#avatar-nav {
+    margin-right: 5px;
+}
+
+.profile-line {
+    display: flex;
+}

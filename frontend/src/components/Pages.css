@@ -1,0 +1,30 @@
+.pages-block {
+    display: block;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.pages-block .buttons {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.pages-block button {
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.pages-block h2 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+button.current-page {
+    border: 1px solid #ffffff;
+}

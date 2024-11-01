@@ -1,0 +1,36 @@
+.message-footer {
+    display: flex;
+    height: 30px;
+}
+
+.message-footer .creation-date {
+    color: grey;
+    font-size: 14px;
+}
+
+.message-footer .right-side {
+    display: inline-flex;
+    margin-left: auto;
+}
+
+.message-footer .right-side * {
+    margin-right: 5px;
+}
+
+.right-side svg {
+    position: sticky;
+    margin-right: 5px;
+}
+
+.reaction-button {
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.reaction-button.active > svg > path {
+    fill: purple;
+}
+
+.reaction-button.active{
+    color: purple;
+}

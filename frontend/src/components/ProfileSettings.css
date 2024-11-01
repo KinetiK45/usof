@@ -1,0 +1,78 @@
+.settings {
+    width: 800px;
+    height: max-content;
+    background-color: #3b3b3b;
+    display: flex;
+    border-radius: 10px;
+}
+
+.settings > div {
+    width: 400px;
+}
+
+.settings .avatar {
+    height: 400px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+.settings input {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+}
+
+.settings .nickname {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    display: flex;
+    border-radius: 10px;
+    background-color: #3b3b3b;
+    font-size: 35px;
+    cursor: pointer;
+    padding: 5px;
+    width: auto;
+    justify-content: center;
+}
+
+.left-side, .right-side {
+    text-align: center;
+}
+
+.settings .profile-status {
+    font-size: 50px;
+    color: #ffffff;
+    text-align: center;
+
+    font-family: "Inter-LightItalic", Helvetica;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: normal;
+
+    width: 400px;
+    height: 91px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.other-field {
+    display: inline-flex;
+}

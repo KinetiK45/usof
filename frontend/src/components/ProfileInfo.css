@@ -1,0 +1,75 @@
+.profile {
+    width: 800px;
+    height: max-content;
+    background-color: #3b3b3b;
+    display: flex;
+    border-radius: 10px;
+
+}
+
+.profile > div {
+    width: 400px;
+}
+
+.profile > .right-side {
+    text-align: center;
+}
+
+.submit-buttons {
+    margin-top: 80px;
+}
+
+.submit-buttons > button {
+    width: 90%;
+    margin-top: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    bottom: 0;
+}
+
+.profile .nickname {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.status-row {
+    text-align: center;
+    align-items: center;
+    position: relative;
+}
+
+.profile-status {
+    font-size: 50px;
+    color: #ffffff;
+
+    font-family: "Inter-LightItalic", Helvetica;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: normal;
+
+    width: 400px;
+    height: 91px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.profile .avatar {
+    height: 400px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+.dop-info > * {
+    margin-top: 20px;
+}

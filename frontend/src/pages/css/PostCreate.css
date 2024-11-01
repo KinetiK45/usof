@@ -1,0 +1,13 @@
+svg {
+    position: relative;
+}
+
+.buttons-inline {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons-inline > button {
+    margin-right: 5px;
+    margin-left: 5px;
+}

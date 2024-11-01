@@ -1,0 +1,36 @@
+.post-data {
+    background-color: #3b3b3b;
+    height: max-content;
+    width: 800px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.post-data h1 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.categories-line {
+    display: flex;
+    padding: 5px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.data-content {
+    display: flex;
+    width: auto;
+    border-radius: 10px;
+}
+
+.data-content:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.main-content-post {
+    display: flex;
+}
+
+.main-content-post > .right-side-menu-block {
+    margin-left: 10px;
+}
